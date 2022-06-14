@@ -68,7 +68,7 @@ Created a method that updates the `searchResults` parameter in the `App` compone
 
 The logic allows a user to enter a search parameter, receives a response from the Spotify API, and updates the `searchResults` state with the results from a Spotify request.
 
-### Obtain a Spotify Access Token
+### 9. Obtain a Spotify Access Token
 
 Wrote three methods that accomplish the following:
 
@@ -76,14 +76,14 @@ Wrote three methods that accomplish the following:
 - Send a search request to the Spotify API
 - Save a user’s playlist to their Spotify account.
 
-### Implement Spotify Search Request
+### 10. Implement Spotify Search Request
 
 Created a method in Spotify.js that accepts a search term input, passes the search term value to a Spotify request, then returns the response as a list of tracks in JSON format
 
-### Save a User's Playlist
+### 11. Save a User's Playlist
 
 Created a method called `savePlaylist` that writes the learner’s custom playlist in Jammming to their Spotify account
 
-### Deploy
+### 12. Deploy
 
 Used surge to deploy The App.
