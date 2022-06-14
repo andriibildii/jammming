@@ -6,8 +6,8 @@
 const clientId = '227c3dd1a4d140d980ce42909457f5a8';
 
 // Redirect URI 
-// const redirectUri = "https://jammming-bildii.surge.sh";
-const redirectUri = "http://localhost:3000/";
+const redirectUri = "https://find-your-rhythm.surge.sh";
+// const redirectUri = "http://localhost:3000/";
 
 // Access token
 let accessToken;

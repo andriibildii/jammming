@@ -3,8 +3,6 @@ import TrackFunction from '../Track/TrackFunction';
 
 function TrackListFunction(props) {
 	const {tracks, onAdd, onRemove, isRemoval} = props;
-
-	console.log(tracks);
 	
 	return (
 		<div className="TrackList">

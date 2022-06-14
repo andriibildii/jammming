@@ -14,7 +14,6 @@ const {onSearch} = props;
 		setTerm(event.target.value);
 	}
 
-	
 	return (
 		<div className="SearchBar">
 			<input placeholder="Enter A Song, Album, or Artist" onChange={handleTermChange}/>

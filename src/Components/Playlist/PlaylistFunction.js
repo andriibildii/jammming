@@ -2,7 +2,7 @@ import './Playlist.css';
 import TrackListFunction from '../TrackList/TrackListFunction';
 
 function PlaylistFunction(props) {
-	const {playlistTracks, onRemove, onNameChange, onSave, addTrack} = props;
+	const {playlistTracks, onRemove, onNameChange, onSave} = props;
 
 	// Change the Name of a Playlist
 	function handleNameChange(event) {
@@ -13,8 +13,7 @@ function PlaylistFunction(props) {
 		<div className="Playlist">
 			<input defaultValue={"New Playlist"} onChange={handleNameChange} />
 			<TrackListFunction 
-				tracks={playlistTracks}
-				onAdd={addTrack}					
+				tracks={playlistTracks}					
 				onRemove={onRemove}
 				isRemoval={true} />
 			<button className="Playlist-save" onClick={onSave}>SAVE TO SPOTIFY</button>

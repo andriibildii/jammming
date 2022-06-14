@@ -3,6 +3,7 @@ import TrackListFunction from '../TrackList/TrackListFunction';
 
 function SearchResultsFunction(props) {
 	const {searchResults, onAdd} = props;
+	
 	return (
 		<div className="SearchResults">
 			<h2>Results</h2>

@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Jammming - Playlist App With the Spotify API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is React web application called Jammming.
 
-## Available Scripts
+Firstly in the App using:
+- React `Class` components,
+- passing state,
+- requests with the Spotify API (using `Promise`)
 
-In the project directory, you can run:
+The App allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
 
-### `npm start`
+Secondly:
+- all React Component was rewritten with React `Function` components
+- used `Async/await` for requests with the Spotify API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+------------
+[Deployed App](https://find-your-rhythm.surge.sh/ "Deployed App")
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://find-your-rhythm.surge.sh/
 
-### `npm test`
+------------
+## Technologies
+- React 
+  - Class Components
+  - Function Components
+- Async JavaScript 
+  - Promise
+  - Async/await
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+------------
 
-### `npm run build`
+## Steps:
+### 1. Created Static Components in files:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- SearchBar.js
+- SearchResults.js
+- Playlist.js
+- TrackList.js
+- Track.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Pass Down Search Result and Render Result List
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pass the state of a search results parameter through a series of components to render an array of tracks
 
-### `npm run eject`
+### 3. Pass down Playlist to TrackList
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Pass the state of a user’s custom playlist title and tracks from the App component down to components that render them
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Add Tracks to a Playlist
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Implemented a process for adding a song from the search results track list to the user’s custom playlist
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Remove Tracks from a Playlist
 
-## Learn More
+Implemented a process that removes a song from a user’s custom playlist when the user selects the `-` sign inside of a rendered track
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 6. Change the Name of a Playlist
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Implemented code that allows to change the name of their playlist, and save the updated value to the App component’s state
 
-### Code Splitting
+### 7. Create a Method that Saves the Playlist to a User's Account
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Created a method that will save a user’s playlist to their Spotify account and resets the state of the playlist name and tracks array
 
-### Analyzing the Bundle Size
+### 8. Hook up Search Bar to Spotify Search
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Created a method that updates the `searchResults` parameter in the `App` component with a user’s search results
 
-### Making a Progressive Web App
+The logic allows a user to enter a search parameter, receives a response from the Spotify API, and updates the `searchResults` state with the results from a Spotify request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Obtain a Spotify Access Token
 
-### Advanced Configuration
+Wrote three methods that accomplish the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Get a Spotify user’s access token
+- Send a search request to the Spotify API
+- Save a user’s playlist to their Spotify account.
 
-### Deployment
+### Implement Spotify Search Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Created a method in Spotify.js that accepts a search term input, passes the search term value to a Spotify request, then returns the response as a list of tracks in JSON format
 
-### `npm run build` fails to minify
+### Save a User's Playlist
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created a method called `savePlaylist` that writes the learner’s custom playlist in Jammming to their Spotify account
+
+### Deploy
+
+Used surge to deploy The App.

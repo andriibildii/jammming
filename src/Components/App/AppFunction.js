@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // Style import
 import './App.css';
 // Components import
@@ -8,11 +8,10 @@ import PlaylistFunction from '../Playlist/PlaylistFunction';
 // Spotify import
 import Spotify from '../../util/Spotify';
 
-function AppFunction(props) {
+function AppFunction() {
 	const [searchResults, setSearchResults] = useState([]);
 	const [playlistName, setPlaylistName] = useState('New Playlist');
 	const [playlistTracks, setPlaylistTracks] = useState([]);
-	// const {track,onSave,onNameChange,onRemove} = props;
 
 	// Add Tracks to a Playlist
 	function addTrack(track) {
@@ -21,14 +20,12 @@ function AppFunction(props) {
 			return;
 		}
 		tracks.push(track);
-		setPlaylistTracks(tracks);
+		setPlaylistTracks(prev => [...prev]);
   	}
 
 	// Remove Tracks from a Playlist
 	function removeTrack(track) {
-		let tracks = playlistTracks;
-		tracks = tracks.filter(currentTrack => currentTrack.id !== track.id)
-		setPlaylistTracks(tracks);
+		setPlaylistTracks(prev => prev.filter(currentTrack => currentTrack.id !== track.id))
   	}
 
 	// Change the Name of a Playlist
@@ -49,9 +46,15 @@ function AppFunction(props) {
 		Spotify.search(term).then(searchResults => setSearchResults(searchResults));
 	}
 
+	useEffect(() => {
+		window.addEventListener('load', () => {Spotify.getAccessToken()});
+	}, [playlistTracks, searchResults]);
+
 	return (
 		<div>
-			<h1>Jammming<span className="highlight">Function</span></h1>
+			<h1>
+				Find<span className="highlight">your</span>rhythm
+			</h1>
 			<div className="App">
 				<SearchBarFunction onSearch={search}/>
 				<div className="App-playlist">
@@ -68,11 +71,6 @@ function AppFunction(props) {
 			</div>
 		</div>
 	);
-
-
-	/* componentDidMount() {
-		window.addEventListener('load', () => {Spotify.getAccessToken()});
-	} */
 }
  
 export default AppFunction;
