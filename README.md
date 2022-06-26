@@ -13,6 +13,8 @@ Secondly:
 - all React Component was rewritten with React `Function` components
 - used `Async/await` for requests with the Spotify API
 
+![Hero](./jamming.png "Hero")
+
 ------------
 [Deployed App](https://find-your-rhythm.surge.sh/ "Deployed App")
 
